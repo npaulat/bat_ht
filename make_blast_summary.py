@@ -45,10 +45,9 @@ def hit_counter(blast_out, te_dict, te):
 				good_hit_count += 1
 	return good_hit_count
 
-#BLAST output 6 format: query_id, subject_id, perc_identity, alignment_length, mismatches, gap_opens, q_start, q_end, s_start, s_end, e_value, bit_score
-#AmnHarb1	KN195036.1	81.092	238	41	4	714	948	76701	76937	1.18e-45	191
+#BLAST output 6 format: query_id, subject_id, perc_identity, alignment_length, mismatches, gaps, gap_opens, q_start, q_end, s_start, s_end, e_value, bit_score
+#AmnHarb1	KN195036.1	81.092	238	41	4	4	714	948	76701	76937	1.18e-45	191
 #Actual hit length will be alignment_length - gaps (# gaps)
-#But I ran with default, so only have gap_opens (number of gap blocks, not # gap bases)
 #/lustre/work/aosmansk/apps/ncbi-blast-2.11.0+/bin/blast_formatter -archive /lustre/scratch/npaulat/yin_yang/blast_80/AmnHarb1/AmnHarb1_TolMat.asn -out /lustre/scratch/npaulat/yin_yang/blast_80/AmnHarb1/AmnHarb1_TolMat.out -outfmt "6 qseqid sseqid pident length mismatch gapopen gaps qstart qend sstart send evalue bitscore"
 
 #need to exlude 4 bat1k species b/c not published (gSor) or no closely related species with curated de novo TE library
@@ -56,7 +55,6 @@ exclude_list = ["gSor", "sBil", "nTum", "hMon"]
 
 summary_list = {}
 for te in te_dict:
-	#summary_list.append(te)
 	#for each file in subdirectory:
 	#this assumes no subdirs have been added to TE blast subdirs from blast runs
 	#assumes only BLAST .out files in each subdirectory
@@ -74,18 +72,9 @@ for te in te_dict:
 				summary_list[te].append((species_name, good_hit_count))
 			except KeyError:
 				summary_list[te] = [(species_name, good_hit_count)]
-		#summary_list.append(species_name + "\t" + numhits)
-	#sum_file = os.path.join(subdirectory, "summary_file.txt")
 
 with open(summary_file, 'a+') as g:
 	for key, values in summary_list.items():
 		for tuple_value in values:
 			csv_row = [key] + list(tuple_value)
 			g.write(",".join(str(x) for x in csv_row) + "\n")
-
-# with open(summary_file, 'w+') as g:
-	# for key, values in summary_list.items():
-		# for tuple_value in values:
-			# csv_row_list = [key] + list(tuple_value)
-			# csv_row = str(",".join(str(x) for x in csv_row_list) + "\n")
-			# g.write(csv_row)
