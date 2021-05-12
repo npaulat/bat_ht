@@ -19,11 +19,11 @@
 12. Open potential_ht_3_80_sp_hits_summary.csv in Excel; use VLOOKUP of original heatmap to fill in new hit counts
     * =VLOOKUP($A3&B$2,potential_ht_hits!$A$1:$D$22855,4,0)
     * Copy worksheet to new (only values); replace "#N/A" with "_"
-    * **(DB3):** List of DB2 TEs meeting presence/absence cutoff of 20 copies (20 80/80/80 hits) = ht_te_list
+    * **(DB3):** List of DB2 TEs meeting presence/absence cutoff of 100 copies (20 80/80/80 hits) = ht_te_list (old version was TE_LIST2)
 13. Use ht_te_list as input file in blast_array.sh (make sure to change -a 1-N; N=length of ht_te_list), submit blast_array.sh to run blastn locally on eukaryote genome assemblies
 14. Run generate_ht_summary_90_90.py to determine species with 20+ 90/90/90 hits (ext_ht_te_list)
 15. Use ext_ht_te_list as input for generateto run array jobs of ext_align scripts on non-mammals
-16. Use potential_ht_3_80_sp_hits_summary.csv and potential_ht_tes_reduced as input for generate_bash_mamm_cons.py to generate array jobs of ext_align scripts on mammals
+16. Use potential_ht_3_80_sp_hits_summary.csv and ht_te_list as input for generate_bash_mamm_cons.py to generate array jobs of ext_align scripts on mammals
 17. Copy all consensus sequences into species_consensus_seqs/ subdirectory, then move into subdirectories by TE name
      * **For mammals**
          * for SUBDIR in \*/; do cp ${SUBDIR::-1}/final_consensuses/${SUBDIR::-1}\_rep.fa /lustre/scratch/npaulat/yin_yang/ext_align/species_consensus_seqs/; done
