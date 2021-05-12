@@ -1,4 +1,4 @@
-# Identification of putative HT DNA transposons involving bats
+## Identification of putative HT DNA transposons involving bats
 
 This workflow is to computationally identify putative horizontally transferred (HT) DNA transposons, done here by searching across 253 mammalian species, specifically focused on those involved in the 44 bat species.\
 \
@@ -15,7 +15,7 @@ Given the wide variety of DNA transposons and species involved, this is a broad-
      * Only useful if present in 3 or more species; search for phylogenetic incongruence with species tree
 
 
-## Workflow
+### Workflow
 1. Create species list in order of appearance on your phylogeny
 2. Annotate TEs in each species with RepeatMasker
 3. RM2Bed conversion with -min 80 and -o higher_score
