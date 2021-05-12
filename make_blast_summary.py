@@ -45,7 +45,7 @@ def hit_counter(blast_out, te_dict, te):
 				good_hit_count += 1
 	return good_hit_count
 
-#BLAST output 6 format: query_id, subject_id, perc_identity, alignment_length, mismatches, gaps, gap_opens, q_start, q_end, s_start, s_end, e_value, bit_score
+#BLAST output 6 format: query_id, subject_id, perc_identity, alignment_length, mismatches, gap_opens, gaps, q_start, q_end, s_start, s_end, e_value, bit_score
 #AmnHarb1	KN195036.1	81.092	238	41	4	4	714	948	76701	76937	1.18e-45	191
 #Actual hit length will be alignment_length - gaps (# gaps)
 #/lustre/work/aosmansk/apps/ncbi-blast-2.11.0+/bin/blast_formatter -archive /lustre/scratch/npaulat/yin_yang/blast_80/AmnHarb1/AmnHarb1_TolMat.asn -out /lustre/scratch/npaulat/yin_yang/blast_80/AmnHarb1/AmnHarb1_TolMat.out -outfmt "6 qseqid sseqid pident length mismatch gapopen gaps qstart qend sstart send evalue bitscore"
