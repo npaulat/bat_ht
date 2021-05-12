@@ -14,7 +14,7 @@ Given the wide variety of DNA transposons and species involved, this is a broad-
 7. Generate [RAxML](https://github.com/stamatak/standard-RAxML) trees of species-specific consensus sequences for each autonomous element with 20+ copies, and each non-autonomous element with 100+ copies in a given species
      * Only useful if present in 3 or more species; search for phylogenetic incongruence with species tree
 
-\
+
 ## Workflow
 1. Create species list in order of appearance on your phylogeny
 2. Annotate TEs in each species with RepeatMasker
