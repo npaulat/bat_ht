@@ -1,7 +1,7 @@
 # Identification of putative HT DNA transposons involving bats
 
-This workflow is to computationally identify putative horizontally transferred (HT) DNA transposons, done here by searching across 253 mammalian species, specifically focused on those involved in the 44 bat species. \n
-\n
+This workflow is to computationally identify putative horizontally transferred (HT) DNA transposons, done here by searching across 253 mammalian species, specifically focused on those involved in the 44 bat species.\
+\
 Given the wide variety of DNA transposons and species involved, this is a broad-scale search, with _a priori_ search thresholds. The overall workflow is:
 1. Transposable element (TE) annotation using RepeatMasker in 253 mammalian genome assemblies
 2. Local genome BLAST searches (blastn) of all DNA transposons annotated in 1+ bat species with 100+ copies of at least 80 bp length in the species; search criteria of at least 80% sequence identity and at least 80% query alignment
@@ -14,7 +14,7 @@ Given the wide variety of DNA transposons and species involved, this is a broad-
 7. Generate RAxML trees of species-specific consensus sequences for each autonomous element with 20+ copies, and each non-autonomous element with 100+ copies in a given species
      * Only useful if present in 3 or more species; search for phylogenetic incongruence with species tree
 
-\n
+\
 ## Workflow
 1. Create species list in order of appearance on your phylogeny
 2. Annotate TEs in each species with RepeatMasker
