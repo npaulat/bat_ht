@@ -53,3 +53,7 @@ Given the wide variety of DNA transposons and species involved, this is a broad-
          * for i in \*.fa; do cp ${i} /lustre/scratch/npaulat/yin_yang/ext_align/species_consensus_seqs/; done
          * cd ../species_consensus_seqs/
          * for ITEM in $LIST: do mkdir ${ITEM}; mv "${ITEM}\_"* ${ITEM}/ 2>/dev/null; done
+18. Run concatenate_te_sp_rep_seqs.py to group species' consensus sequences by element to form a multi line FASTA for each element, and generate files for te_reps_muscle_aln.sh.
+19. Align TE consensus sequences with MUSCLE by running te_reps_muscle_aln.sh
+20. For TEs with 3+ species sequences (tes_multi_sp_aln_files), generate RAxML trees.
+    * 
