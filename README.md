@@ -4,11 +4,11 @@ This workflow is to computationally identify putative horizontally transferred (
 \
 Given the wide variety of DNA transposons and species involved, this is a broad-scale search, with _a priori_ search thresholds. The overall workflow is:
 1. Transposable element (TE) annotation using [RepeatMasker](http://repeatmasker.org/) in 253 mammalian genome assemblies
-2. Local genome [BLAST](https://www.ncbi.nlm.nih.gov/books/NBK279690/) searches (blastn) of all DNA transposons annotated in 1+ bat species with 100+ copies of at least 80 bp length in the species; search criteria of at least 80% sequence identity and at least 80% query alignment
+2. Local genome [BLAST](https://www.ncbi.nlm.nih.gov/books/NBK279690/) searches (blastn) of all DNA transposons annotated in 1+ bat species with 100+ copies of at least 80 bp length in the species; search criteria of at least 90% sequence identity and at least 90% query alignment
 3. Local BLAST searches (blastn) for those same DNA transposons in all [NCBI eukaryote genome assemblies available](https://ftp.ncbi.nlm.nih.gov/blast/db/) (accessed April 06 2021); search criteria of at least 90% sequence identity and at least 90% query alignment
     * See blastdb_download.sh script for databases used.
 4. Generate species-specific consensus sequences for all transposons; for non-mammalian species, must have 20+ hits
-5. Use [CD-HIT-EST](http://weizhongli-lab.org/cd-hit/) to confirm all species-specific consensus sequences meet the 90/90/90 rule for the original library element (90% sequence identity, 90% sequence length, 90+ bp length); exclude any that do not meet this criteria
+5. Use [CD-HIT-EST](http://weizhongli-lab.org/cd-hit/) to confirm all species-specific consensus sequences meet the 90/90/90 rule for the original library element (at least 90% sequence identity, 90% sequence length, 90 bp length); exclude any that do not meet this criteria
 6. Identify autonomous elements: 
      * Use [EMBOSS getorf](https://www.bioinformatics.nl/cgi-bin/emboss/help/getorf) utility to identify open-reading frames (ORFs) for all species-specific consensus sequences greater than 800 bp 
      * Perform blastx searches of non-redundant proteins for the largest ORFs from each consensus sequence
