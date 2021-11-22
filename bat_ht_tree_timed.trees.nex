@@ -1,0 +1,48 @@
+#NEXUS
+
+begin TREES;
+
+	TRANSLATE
+		1 Anoura_caudifer,
+		2 Artibeus_jamaicensis,
+		3 Desmodus_rotundus,
+		4 Micronycteris_hirsuta,
+		5 Sturnira_hondurensis,
+		6 Tonatia_saurophila,
+		7 Phyllostomus_discolor,
+		8 Phyllostomus_hastatus,
+		9 Carollia_perspicillata,
+		10 Noctilio_leporinus,
+		11 Tadarida_brasiliensis,
+		12 Mollosus_mollosus,
+		13 Mormoops_blainvillei,
+		14 Pternotus_parnellii,
+		15 Antrozous_pallidus,
+		16 Eptesicus_fuscus,
+		17 Lasiurus_borealis,
+		18 Miniopterus_natalensis,
+		19 Miniopterus_schreibersii,
+		20 Murina_feae,
+		21 Myotis_myotis,
+		22 Myotis_davidii,
+		23 Myotis_brandtii,
+		24 Myotis_lucifugus,
+		25 Pipistrellus_kuhlii,
+		26 Pipistrellus_pipistrellus,
+		27 Craseonycteris_thonglongyai,
+		28 Hipposideros_armiger,
+		29 Hipposideros_galeritus,
+		30 Megaderma_lyra,
+		31 Rhinolophus_ferrumequinum,
+		32 Rhinolophus_sinicus,
+		33 Eidolon_helvum,
+		34 Macroglossus_sobrinus,
+		35 Pteropus_alecto,
+		36 Pteropus_vampyrus,
+		37 Rousettus_aegyptiacus;
+
+
+	TREE 'feb 2021 zoonomia + 8 bat1k tree+' = (((((4:29.4,(3:29,((6:19.14,(7:13.8,8:13.8):5.34[%nodeAgeConstraints = 'string:13.8' ]):9.379999999999999[%nodeAgeConstraints = 'string:19.14' ],(1:24.4,(9:21.5,(5:17.7,2:17.7):3.8000000000000007[%nodeAgeConstraints = 'string:17.7' ]):2.8999999999999986[%nodeAgeConstraints = 'string:21.5' ]):4.120000000000001[%nodeAgeConstraints = 'string:24.4' ]):0.4800000000000004[%nodeAgeConstraints = 'string:28.52' ]):0.3999999999999986[%nodeAgeConstraints = 'string:29' ]):7.700000000000003[%nodeAgeConstraints = 'string:29.4' ],(14:34,13:34):3.1000000000000014[%nodeAgeConstraints = 'string:34' ]):5.899999999999999[%nodeAgeConstraints = 'string:37.1' ],10:43):11[%nodeAgeConstraints = 'string:43' ],((11:25.6,12:25.6):23.4[%nodeAgeConstraints = 'string:25.6' ],((18:13.8,19:13.8):31.2[%nodeAgeConstraints = 'string:13.8' ],((20:27.5,((22:18.7,21:18.7):2.1000000000000014[%nodeAgeConstraints = 'string:18.7' ],(23:14.2,24:14.2):6.600000000000001[%nodeAgeConstraints = 'string:14.2' ]):6.699999999999999[%nodeAgeConstraints = 'string:20.8' ]):3.5[%nodeAgeConstraints = 'string:27.5' ],(17:29,(16:28.2,(15:26.6,(25:16.4,26:16.4):10.200000000000003[%nodeAgeConstraints = 'string:16.4' ]):1.5999999999999979[%nodeAgeConstraints = 'string:26.6' ]):0.8000000000000007[%nodeAgeConstraints = 'string:28.2' ]):2[%nodeAgeConstraints = 'string:29' ]):14[%nodeAgeConstraints = 'string:31' ]):4[%nodeAgeConstraints = 'string:45' ]):5[%nodeAgeConstraints = 'string:49' ]):8[%nodeAgeConstraints = 'string:54' ],(((27:43,30:43):9[%nodeAgeConstraints = 'string:43' ],((28:28.4,29:28.4):17.6[%nodeAgeConstraints = 'string:28.4' ],(31:39,32:39):7[%nodeAgeConstraints = 'string:39' ]):6[%nodeAgeConstraints = 'string:46' ]):6[%nodeAgeConstraints = 'string:52' ],(34:35,((35:12.94,36:12.94):14.459999999999999[%nodeAgeConstraints = 'string:12.94' ],(33:25,37:25):2.3999999999999986[%nodeAgeConstraints = 'string:25' ]):7.600000000000001[%nodeAgeConstraints = 'string:27.4' ]):23[%nodeAgeConstraints = 'string:35' ]):4[%nodeAgeConstraints = 'string:58' ])[%nodeAgeConstraints = 'string:62' ] [% ] [%  setBetweenObject = nodeAgeConstraints ];
+end;
+
+
