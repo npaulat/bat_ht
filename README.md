@@ -55,7 +55,7 @@ Given the wide variety of DNA transposons and species involved, this is a broad-
 16. Copy all consensus sequences into species_consensus_seqs/ subdirectory, then move into subdirectories by TE name
      * For mammals:
          * for SUBDIR in \*/; do cp ${SUBDIR::-1}/final_consensuses/${SUBDIR::-1}\_rep.fa /lustre/scratch/npaulat/yin_yang/ext_align/species_consensus_seqs/; done
-         * OR for i in */; do cp ${i}/final_consensuses/* ../sp_consensus_seqs/; done
+         * OR for i in \*/; do cp ${i}/final_consensuses/* ../sp_consensus_seqs/; done
     
     * For non-mammals:
          * LIST=\["list of all ht TEs"]
