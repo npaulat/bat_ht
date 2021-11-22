@@ -76,3 +76,7 @@ Given the wide variety of DNA transposons and species involved, this is a broad-
     * Bat phylogeny based on Foley et al. 2021 and [Amador et al. 2018](https://link.springer.com/article/10.1007/s10914-016-9363-8) and used a combination of non-conflicting average or median divergnence estimates from [TimeTree](http://www.timetree.org/) (accessed 3 September 2021).
     * To be conservative, elements assigned to oldest possible branch based on presence/absence data within a given clade (i.e. there are four _Myotis_ species representing to sister species pairs (for this tree), _M. brandtii + lucifugus_ and _M. davidii + myotis_; if only _M. brandtii_ and _myotis_ were searched, and the element was found in both, it was assumed to also be in the other two species, and so the HT event would be inferred to have occurred in the ancestral _Myotis_ lineage.)
 23. Estimate association between young (>50 My) TE accumulation in bats and species richess; association between putative HT diversity and species richness in bats.
+    * Make a data matrix of presence/absence of the putative HT TE subfamilies per bat species, and one of young TE copies per bat species (bats_PA_tables_edited_v3.csv; bats_accumulation.csv)
+    * To count descendents assigned to each tip of the bat phylogeny, run tree_count_v2.R
+    * For putative HT element diversity vs species richness, run brms_TE_v4.R
+    * For young TE accumulation (copies) vs species richness, run brms_TE_cumu.R then brms_TE_cumu_x.R
