@@ -20,12 +20,12 @@ import pathlib
 ## then take those files and make separate reduced files of just TE name, scaffold, start, stop for the ortholog comparisons
 
 ## Make TE list object
-TE_LIST_FILE = "/lustre/scratch/npaulat/RayLib-Masking/filter_blast/ht_te_227_list"
+TE_LIST_FILE = "/lustre/scratch/npaulat/RayLib-Masking/filter_blast/ht_te_221_list"
 with open(TE_LIST_FILE) as g:
 	TE_LIST = list(line for line in g.read().splitlines() if line)
 
 
-TE_TYPE_LIST_FILE = "/lustre/scratch/npaulat/RayLib-Masking/filter_blast/te_type_list2"
+TE_TYPE_LIST_FILE = "/lustre/scratch/npaulat/RayLib-Masking/filter_blast/te_type_list"
 with open(TE_TYPE_LIST_FILE) as g:
 	TYPE_LIST = list(line for line in g.read().splitlines() if line)
 
