@@ -23,3 +23,6 @@ Local BLAST searches of genome assemblies:
   ```
   
   * Create summary file of BLAST hits for all TEs and taxa with **make_blast_90_summary.py**
+  
+  * Download NCBI eukaryote genome assembly database; see **download_db.sh** 
+  * Run BLAST+ on eukaryote genome assembly database; see **blast_array.sh**
