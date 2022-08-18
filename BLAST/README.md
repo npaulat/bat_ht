@@ -26,3 +26,6 @@ Local BLAST searches of genome assemblies:
   
   * Download NCBI eukaryote genome assembly database; see **blastdb_download.sh** 
   * Run BLAST+ on eukaryote genome assembly database; see **blast_array.sh**
+  * Filter BLAST results to resolve duplicate calls with best match from candidate HTT library (417 TEs); see **check_overlaps.py**
+  * Reformat filtered BLAST results for downstream use in the orthologous TE searches and summarization; see **reformat_filtered_blast.py**
+  * Make summary file of filtered BLAST results for all HTTs and all mammals; see **mk_mamm_filter_blast_summary.py**
