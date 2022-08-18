@@ -1,5 +1,4 @@
 ArtJam-1.129#DNA/TcMariner
-CheMed-1.122#DNA/hAT
 CraTho-1.133#DNA/TcMariner
 CraTho-1.141#DNA/TcMariner
 CraTho-1.162#DNA/hAT
@@ -33,9 +32,8 @@ DNAX1_ML#DNA/hAT
 DNAX5_ML#DNA/TcMariner
 DNAX8_ML#DNA/TcMariner
 EchTel-1.100#DNA/hAT
-hAT1_mMol#DNA/hAT
 hAT-2N1_MM#DNA/hAT
-hAT-2N2_ML#DNA/hAT
+hAT1_mMol#DNA/hAT
 HeliBat_N1a_ML#RC/Helitron
 HeliBat_N1c_ML#RC/Helitron
 HeliBatN1#RC/Helitron
@@ -82,6 +80,7 @@ LasBor-6.4311#DNA/piggyBac
 MacSob-5.1684#DNA/piggyBac
 MARIN1_ML#DNA/TcMariner
 Mariner_Tbel#DNA/TcMariner
+Mariner-84a_Hsal#DNA/TcMariner
 Mariner1_Lb#DNA/TcMariner
 Mariner1_ML#DNA/TcMariner
 Mariner1_rFer#DNA/TcMariner
@@ -89,7 +88,6 @@ Mariner2_mMol#DNA/TcMariner
 Mariner2_pKuh#DNA/TcMariner
 Mariner3_Ml#DNA/TcMariner
 Mariner3_pKuh#DNA/TcMariner
-Mariner-84a_Hsal#DNA/TcMariner
 MegLyr-1.164#DNA/TcMariner
 MegLyr-1.203#DNA/hAT
 MegLyr-1.204a#DNA/piggyBac
@@ -116,7 +114,6 @@ MurFea-1.177#DNA/TcMariner
 MurFea-1.209#DNA/TcMariner
 MurFea-1.231#DNA/hAT
 MurFea-1.236#DNA/hAT
-MurFea-1.251#DNA/hAT
 MurFea-1.276a#RC/Helitron
 MurFea-1.28#RC/Helitron
 MurFea-1.2b#RC/Helitron
@@ -158,13 +155,13 @@ MyoBra-5.662#DNA/piggyBac
 MyoBra-5.81#DNA/hAT
 nhAT_1124_ML#DNA/hAT
 nhAT_186_ML#DNA/hAT
+nhAT-3_EF#DNA/hAT
 nhAT1__pKuh#DNA/hAT
 nhAT1_Ppar#DNA/TcMariner
 nhAT1_RFe#DNA/hAT
 nhAT171_ML#DNA/hAT
 nhAT1a_ML#DNA/hAT
 nhAT2_525_ML#DNA/hAT
-nhAT-3_EF#DNA/hAT
 nhAT3_mMyo#DNA/hAT
 nhAT3_pKuh#DNA/hAT
 nhAT37_ML#DNA/hAT
@@ -185,14 +182,14 @@ nMar382_Ml#DNA/TcMariner
 nMar5_Rf#DNA/TcMariner
 nMar7_Ppar#DNA/TcMariner
 nMariner-1_EF#DNA/TcMariner
+nMariner-2_EF#DNA/TcMariner
+nMariner-6_EF#DNA/TcMariner
+nMariner-8_EF#DNA/TcMariner
 nMariner1_Lbo#DNA/TcMariner
 nMariner1_pKuh#DNA/TcMariner
 nMariner1_Psu#DNA/TcMariner
-nMariner-2_EF#DNA/TcMariner
 nMariner2_Lbo#DNA/TcMariner
 nMariner2_pKuh#DNA/TcMariner
-nMariner-6_EF#DNA/TcMariner
-nMariner-8_EF#DNA/TcMariner
 NocLep-1.96a#DNA/TcMariner
 NocLep-6.3719#DNA/TcMariner
 npiggy_156_ML#DNA/piggyBac
@@ -201,8 +198,8 @@ npiggy1_Mm#DNA/piggyBac
 npiggy1_mMyo#DNA/piggyBac
 npiggy165_ML#DNA/piggyBac
 npiggyBac-1_EF#DNA/piggyBac
-npiggyBac10_Rf#DNA/piggyBac
 npiggyBac-2_EF#DNA/piggyBac
+npiggyBac10_Rf#DNA/piggyBac
 nTc1_135_ML#DNA/TcMariner
 nTc1_27_ML#DNA/TcMariner
 nTc1_950_ML#DNA/TcMariner
@@ -221,5 +218,4 @@ SPIN_Og#DNA/hAT
 TadBra-1.100b#DNA/TcMariner
 TadBra-1.184#DNA/TcMariner
 TadBra-1.217#DNA/TcMariner
-TadBra-1.92#DNA/hAT
 TonSau-3.510#DNA/TcMariner
