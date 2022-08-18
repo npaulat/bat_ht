@@ -6,7 +6,7 @@ import math
 from Bio import SeqIO
 
 blast_dir = "/lustre/scratch/npaulat/RayLib-Masking/filter_blast"
-summary_file = os.path.join(blast_dir, "mamm_ht_221_90_filtered_hits_summary_check2.csv")
+summary_file = os.path.join(blast_dir, "mamm_ht_221_90_filtered_hits_summary.csv")
 library = "/lustre/scratch/npaulat/RayLib-Masking/te_fastas/final_mammal_library_reduced.fa"
 ## Make TE list w/ TE consensus length
 te_list_file = "/lustre/scratch/npaulat/RayLib-Masking/filter_blast/ht_te_221_list"
