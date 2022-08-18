@@ -31,7 +31,7 @@ Given the wide variety of DNA transposons and species involved, this is a broad-
 4. Get TE counts with te-counts.sh
 5. Get third column from these TE count files
     ```
-    for i in \*\_HT; do awk -F ' ' '{print $3}' ${i} \> ${i}2; done
+    for i in *_HT; do awk -F ' ' '{print $3}' ${i} > ${i}2; done
     ```
 6. Paste together these HT2 files in order of the species phylogeny using paste_final_table.sh; copy final_table to working directory as final_sp_TE_table
 7. Run final_generate_heatmap_tables.py in order to reformat and filter TE data for DNA/RC elements with limited distributions involving bats (final_sp_TE_heatmap_min100_DNA_RC_only.csv)
