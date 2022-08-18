@@ -54,16 +54,16 @@ Given the wide variety of DNA transposons and species involved, this is a broad-
     * If autonomous (based on ORF + blastx), include all species with 20+ hits; if non-autonomous, include all species with 100+ hits
 16. Copy all consensus sequences into species_consensus_seqs/ subdirectory, then move into subdirectories by TE name
      * For mammals:
-         * for SUBDIR in \*/; do cp ${SUBDIR::-1}/final_consensuses/${SUBDIR::-1}\_rep.fa /lustre/scratch/npaulat/yin_yang/ext_align/species_consensus_seqs/; done
-         * OR for i in \*/; do cp ${i}/final_consensuses/* ../sp_consensus_seqs/; done
-    
+         * ```for SUBDIR in \*/; do cp ${SUBDIR::-1}/final_consensuses/${SUBDIR::-1}\_rep.fa /lustre/scratch/npaulat/yin_yang/ext_align/species_consensus_seqs/; done```
+         * OR ```for i in \*/; do cp ${i}/final_consensuses/* ../sp_consensus_seqs/; done```
+    `
     * For non-mammals:
-         * LIST=\["list of all ht TEs"]
-    
-         * cd /lustre/scratch/npaulat/yin_yang/ext_align/nonmamm_species_cons_seqs
-         * for i in \*.fa; do cp ${i} /lustre/scratch/npaulat/yin_yang/ext_align/species_consensus_seqs/; done
-         * cd ../species_consensus_seqs/
-         * for ITEM in $LIST: do mkdir ${ITEM}; mv "${ITEM}\_"* ${ITEM}/ 2>/dev/null; done
+         ```LIST=["list of all ht TEs"]
+         
+         cd /lustre/scratch/npaulat/yin_yang/ext_align/nonmamm_species_cons_seqs
+         for i in \*.fa; do cp ${i} /lustre/scratch/npaulat/yin_yang/ext_align/species_consensus_seqs/; done
+         cd ../species_consensus_seqs/
+         for ITEM in $LIST: do mkdir ${ITEM}; mv "${ITEM}\_"* ${ITEM}/ 2>/dev/null; done```
 17. Run concatenate_te_sp_rep_seqs.py to group species' consensus sequences by element to form a multi line FASTA for each element, and generate files for te_reps_muscle_aln.sh.
     * Use [CD-HIT-EST](http://weizhongli-lab.org/cd-hit/) to confirm all species-specific consensus sequences meet the 90/90/90 rule for the original library element (at least 90% sequence identity, 90% sequence length, 90 bp length); exclude any that do not meet this criteria
 18. Align TE consensus sequences with MUSCLE by running te_reps_muscle_aln.sh
