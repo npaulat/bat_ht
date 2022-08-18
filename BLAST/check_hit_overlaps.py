@@ -158,8 +158,6 @@ def blast_call(HIT_DICT,SCAFF,INSERTION1):
 
 
 # Make dictionary from input file
-
-#HIT_DICT = read_blast("dups_test2.txt")
 print('Made first dictionary.')
 
 #for SPECIES in SP_LIST:
