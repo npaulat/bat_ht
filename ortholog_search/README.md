@@ -104,9 +104,9 @@ for i in *221match_crossmatch_hits.out; do if [ -s ${i} ]; id=$(basename ${i} _h
   * Can also rerun CrossMatch to include the alignment of the TE consensus sequence to the target sequence to check the quality of the ID
     
   
-######
 
-If creating/combining libraries with Dfam database elements, will need to get IDs and replace #DFAMXXXXX.XX from with actual TE name
+
+### If creating/combining libraries with Dfam database elements, will need to get IDs and replace #DFAMXXXXX.XX from with actual TE name
 ```
 /lustre/work/daray/software/RepeatMasker-4.1.2-p1/famdb.py –i Dfam_curatedonly.h5 families –ad root –f fasta acc > Dfam3.6_curated.fa
 sed 's/ name=/_/g' Dfam3.6_curated.fa > Dfam3.6_curated_names.fa
