@@ -31,7 +31,8 @@ Given the wide variety of DNA transposons and species involved, this is a broad-
 4. Get TE counts with te-counts.sh
 5. Get third column from these TE count files
     ```
-    for i in *_HT; do awk -F ' ' '{print $3}' ${i} > ${i}2; done ```
+    for i in *_HT; do awk -F ' ' '{print $3}' ${i} > ${i}2; done
+    ```
 6. Paste together these HT2 files in order of the species phylogeny using paste_final_table.sh; copy final_table to working directory as final_sp_TE_table
 7. Run final_generate_heatmap_tables.py in order to reformat and filter TE data for DNA/RC elements with limited distributions involving bats (final_sp_TE_heatmap_min100_DNA_RC_only.csv)
 8. Use final_sp_TE_heatmap_min100_DNA_RC_only.csv as input for final_generate_blast_90_sh.py, which will generate job submission scripts
@@ -40,7 +41,7 @@ Given the wide variety of DNA transposons and species involved, this is a broad-
     * This was done due to maximum user job limit in queue = 2000; adjust as needed for your system
 10. Run BLAST submission scripts
     * Use jobid of blast_all_TEs_all_mammals_mkdb.sh as hold dependency for the BLAST searches
-      * for i in blast_all_TEs_all_mammals-\*; do sbatch --dependency=afterany:<jobid#> ${i}; done
+      * ```for i in blast_all_TEs_all_mammals-\*; do sbatch --dependency=afterany:<jobid#> ${i}; done```
 11. Run final_make_blast_summary.py to create a summary table of BLAST results across all species (potential_ht_3_90_sp_hits_summary.csv)
 12. Open potential_ht_3_90_sp_hits_summary.csv in Excel; use VLOOKUP of original heatmap to fill in new hit counts
     * =VLOOKUP($A3&B$2,potential_ht_hits!$A$1:$D$22855,4,0)
