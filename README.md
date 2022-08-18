@@ -58,8 +58,8 @@ Given the wide variety of DNA transposons and species involved, this is a broad-
          * OR ```for i in \*/; do cp ${i}/final_consensuses/* ../sp_consensus_seqs/; done```
     `
     * For non-mammals:
-         ```LIST=["list of all ht TEs"]
-         
+         ```
+         LIST=["list of all ht TEs"]
          cd /lustre/scratch/npaulat/yin_yang/ext_align/nonmamm_species_cons_seqs
          for i in \*.fa; do cp ${i} /lustre/scratch/npaulat/yin_yang/ext_align/species_consensus_seqs/; done
          cd ../species_consensus_seqs/
