@@ -37,7 +37,9 @@ Given the wide variety of DNA transposons and species involved, this is a broad-
 7. Run final_generate_heatmap_tables.py in order to reformat and filter TE data for DNA/RC elements with limited distributions involving bats (final_sp_TE_heatmap_min100_DNA_RC_only.csv)
 8. Use final_sp_TE_heatmap_min100_DNA_RC_only.csv as input for final_generate_blast_90_sh.py, which will generate job submission scripts
 9. Split job submission scripts by 1990 lines (max jobs in queue = 2000), add bash submission header to each script
+    ```
     for f in blast_all_TEs_all_mammals.sh; do split -d -a 2 -l 1990 --additional-suffix=.sh "$f" "${f%.sh}-"; done
+    ```
     * This was done due to maximum user job limit in queue = 2000; adjust as needed for your system
 10. Run BLAST submission scripts
     * Use jobid of blast_all_TEs_all_mammals_mkdb.sh as hold dependency for the BLAST searches
