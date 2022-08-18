@@ -6,16 +6,10 @@ import math
 from Bio import SeqIO
 
 blast_dir = "/lustre/scratch/npaulat/RayLib-Masking/filter_blast"
-#summary_file = os.path.join(blast_dir, "mamm_ht_417_90_filtered_hits_summary_check.csv")
-#summary_file = os.path.join(blast_dir, "mamm_ht_225_90_filtered_hits_summary_check.csv")
-summary_file = os.path.join(blast_dir, "mamm_ht_227_90_filtered_hits_summary_check2.csv")
-#summary_file = os.path.join(blast_dir, "bat_ht_417_90_filtered_hits_summary_check.csv")
-#summary_file = os.path.join(blast_dir, "bat_ht_225_90_filtered_hits_summary.csv")
+summary_file = os.path.join(blast_dir, "mamm_ht_221_90_filtered_hits_summary_check2.csv")
 library = "/lustre/scratch/npaulat/RayLib-Masking/te_fastas/final_mammal_library_reduced.fa"
 ## Make TE list w/ TE consensus length
-#te_list_file = "/lustre/scratch/npaulat/RayLib-Masking/filter_blast/ht_te_417_list"
-#te_list_file = "/lustre/scratch/npaulat/RayLib-Masking/filter_blast/ht_te_225_list"
-te_list_file = "/lustre/scratch/npaulat/RayLib-Masking/filter_blast/ht_te_227_list"
+te_list_file = "/lustre/scratch/npaulat/RayLib-Masking/filter_blast/ht_te_221_list"
 te_dict = {}
 with open(te_list_file) as g:
 	te_list = list(line for line in g.read().splitlines() if line)
