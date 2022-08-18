@@ -1,6 +1,6 @@
 ## Identification of putative HT DNA transposons involving bats
 
-This workflow is to computationally identify putative horizontally transferred (HT) DNA transposons, done here by searching across 251 mammalian species, specifically focused on those involved in the 37 bat species.\
+This workflow is to computationally identify putative horizontally transferred (HT) DNA transposons, done here by searching across 251 mammalian species, specifically focused on those present in any of 37 bat species.\
 \
 Given the wide variety of DNA transposons and species involved, this is a broad-scale search, with _a priori_ search thresholds. The main steps are:
 1. Transposable element (TE) annotation using [RepeatMasker](http://repeatmasker.org/) in 253 mammalian genome assemblies
@@ -44,9 +44,9 @@ Given the wide variety of DNA transposons and species involved, this is a broad-
 12. Open potential_ht_3_90_sp_hits_summary.csv in Excel; use VLOOKUP of original heatmap to fill in new hit counts
     * =VLOOKUP($A3&B$2,potential_ht_hits!$A$1:$D$22855,4,0)
     * Copy worksheet to new (only values); replace "#N/A" with "_"
-    * **(DB3):** List of DB2 TEs meeting presence/absence cutoff of 100 copies (20 90/90/90 hits) = ht_te_list
+    * **(DB3):** List of DB2 TEs meeting presence/absence cutoff of 90 copies (20 90/90/90 hits) = ht_te_list
 13. Use ht_te_list as input file in blast_array.sh (make sure to change -a 1-N; N=length of ht_te_list), submit blast_array.sh to run blastn locally on eukaryote genome assemblies (see blastdb_download.sh script for databases used)
-14. Run generate_ht_summary_90_90.py to determine species with 20+ 90/90/90 hits (ht_te_list)
+14. Run generate_ht_summary_90_90.py to determine species with any 90/90/90 hits (ht_te_list)
     * Run [**extend_align**](https://github.com/davidaray/bioinfo_tools/blob/master/extend_align.sh) to get species-specific consensus sequences for any species with 20+ hits
     * Use potential_ht_3_90_sp_hits_summary.csv and ht_te_list as input for generate_bash_mamm_cons2.py to generate array jobs of ext_align scripts on mammals
 15. Use ht_te_list as input for create a list of extend_align jobs for any non-mammals; run jobs and review results as below
