@@ -27,25 +27,25 @@ Given the wide variety of DNA transposons and species involved, this is a broad-
 1. Create species list in order of appearance on your phylogeny
 2. Annotate TEs in each species with RepeatMasker (v4.1.0)
 3. Reformat and filter RepeatMasker output with [**RM2Bed.py**](https://github.com/davidaray/bioinfo_tools/blob/master/RM2bed.py) with -min 90 and -o higher_score options
-    * TE annotations can be summarized visually using the scaledviolinplot.py script and barplot_panel.py script
-4. Get TE counts with te-counts.sh
+    * TE annotations can be summarized visually using the **scaledviolinplot.py** and **barplot_panel.py** scripts
+4. Get TE counts with **te-counts.sh**
 5. Get third column from these TE count files
     * ```for i in *_HT; do awk -F ' ' '{print $3}' ${i} > ${i}2; done```
-6. Paste together these HT2 files in order of the species phylogeny using paste_final_table.sh; copy final_table to working directory as final_sp_TE_table
-7. Run final_generate_heatmap_tables.py in order to reformat and filter TE data for DNA/RC elements with limited distributions involving bats (final_sp_TE_heatmap_min100_DNA_RC_only.csv)
-8. Use final_sp_TE_heatmap_min100_DNA_RC_only.csv as input for final_generate_blast_90_sh.py, which will generate job submission scripts
+6. Paste together these HT2 files in order of the species phylogeny using **paste_final_table.sh**; copy final_table to working directory as final_sp_TE_table
+7. Run **final_generate_heatmap_tables.py** in order to reformat and filter TE data for DNA/RC elements with limited distributions involving bats (final_sp_TE_heatmap_min100_DNA_RC_only.csv)
+8. Use final_sp_TE_heatmap_min100_DNA_RC_only.csv as input for **final_generate_blast_90_sh.py**, which will generate job submission scripts
 9. Split job submission scripts by 1990 lines (max jobs in queue = 2000), add bash submission header to each script
     * ```for f in blast_all_TEs_all_mammals.sh; do split -d -a 2 -l 1990 --additional-suffix=.sh "$f" "${f%.sh}-"; done```
     * This was done due to maximum user job limit in queue = 2000; adjust as needed for your system
 10. Run BLAST submission scripts
     * Use jobid of blast_all_TEs_all_mammals_mkdb.sh as hold dependency for the BLAST searches
     * ```for i in blast_all_TEs_all_mammals-\*; do sbatch --dependency=afterany:<jobid#> ${i}; done```
-11. Run final_make_blast_summary.py to create a summary table of BLAST results across all species (potential_ht_3_90_sp_hits_summary.csv)
+11. Run **final_make_blast_summary.py** to create a summary table of BLAST results across all species (potential_ht_3_90_sp_hits_summary.csv)
 12. Open potential_ht_3_90_sp_hits_summary.csv in Excel; use VLOOKUP of original heatmap to fill in new hit counts
     * =VLOOKUP($A3&B$2,potential_ht_hits!$A$1:$D$22855,4,0)
     * Copy worksheet to new (only values); replace "#N/A" with "_"
     * **(DB3):** List of DB2 TEs meeting presence/absence cutoff of 90 copies (20 90/90/90 hits) = ht_te_list
-13. Use ht_te_list as input file in blast_array.sh (make sure to change -a 1-N; N=length of ht_te_list), submit blast_array.sh to run blastn locally on eukaryote genome assemblies (see blastdb_download.sh script for databases used)
+13. Use ht_te_list as input file in **blast_array.sh** (make sure to change -a 1-N; N=length of ht_te_list), submit blast_array.sh to run blastn locally on eukaryote genome assemblies (see blastdb_download.sh script for databases used)
 14. Run generate_ht_summary_90_90.py to determine species with any 90/90/90 hits (ht_te_list)
     * Run [**extend_align**](https://github.com/davidaray/bioinfo_tools/blob/master/extend_align.sh) to get species-specific consensus sequences for any species with 20+ hits
     * Use potential_ht_3_90_sp_hits_summary.csv and ht_te_list as input for generate_bash_mamm_cons2.py to generate array jobs of ext_align scripts on mammals
