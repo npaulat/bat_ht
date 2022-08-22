@@ -47,7 +47,7 @@ Given the wide variety of DNA transposons and species involved, this is a broad-
     * **(DB3):** List of DB2 TEs meeting presence/absence cutoff of 90 copies (20 90/90/90 hits) = ht_te_list
 13. Use ht_te_list as input file in **blast_array.sh** (make sure to change -a 1-N; N=length of ht_te_list), submit blast_array.sh to run blastn locally on eukaryote genome assemblies (see blastdb_download.sh script for databases used)
 14. Run generate_ht_summary_90_90.py to determine species with any 90/90/90 hits (ht_te_list)
-    * Run [**extend_align**](https://github.com/davidaray/bioinfo_tools/blob/master/extend_align.sh) to get species-specific consensus sequences for any species with 20+ hits
+    * Run [**extend_align**](https://github.com/davidaray/bioinfo_tools/blob/master/extend_align.sh) to get species-specific consensus sequences for any species with BLAST hits
     * Use potential_ht_3_90_sp_hits_summary.csv and ht_te_list as input for generate_bash_mamm_cons2.py to generate array jobs of ext_align scripts on mammals
 15. Use ht_te_list as input for create a list of extend_align jobs for any non-mammals; run jobs and review results as below
     * Use [EMBOSS getorf](https://www.bioinformatics.nl/cgi-bin/emboss/help/getorf) to find ORFs, then do a blastx search of nonredundant proteins to search for 90% ID, 90% length match to a transposase or such
