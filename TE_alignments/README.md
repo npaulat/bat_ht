@@ -15,9 +15,12 @@
   ```
   cd </path/to/BLAST/working/dir>/extend_align/
   mkdir species_consensus_seqs
-  for SUBDIR in \*/; do cp ${SUBDIR::-1}/final_consensuses/${SUBDIR::-1}\_rep.fa </path/to/BLAST/working/dir>/extend_align/species_consensus_seqs/; done```
+  for SUBDIR in \*/; do cp ${SUBDIR::-1}/final_consensuses/${SUBDIR::-1}\_rep.fa </path/to/BLAST/working/dir>/extend_align/species_consensus_seqs/; done
+  ```
     OR
-  ```for i in \*/; do cp ${i}/final_consensuses/* ../sp_consensus_seqs/; done```
+  ```
+  for i in \*/; do cp ${i}/final_consensuses/* ../sp_consensus_seqs/; done
+  ```
   
   * For non-mammal sequences, repeat process into a different directory (nonmamm_species_cons_seqs)
   * Copy to species_consensus_seqs directory:
@@ -35,7 +38,9 @@
   
 ### Align consensus sequences for TEs present in 2+ species
   * This example uses MUSCLE, but CLUSTAL works just as well
-  ```sbatch te_reps_muscl_aln.sh```
+  ```
+  sbatch te_reps_muscl_aln.sh
+  ```
   
 ### Build sequence tree with RaxML (optional)
   * Generally only helpful for TEs present in 3+ species across multiple clades (i.e. bats, lemurs, and tenrecs)
