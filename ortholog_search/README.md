@@ -1,5 +1,5 @@
 ## Orthologous TE insertion site searches across genomes
-  * Required programs: [RepeatMasker](https://www.repeatmasker.org/RepeatMasker/), [BEDtools](https://bedtools.readthedocs.io/en/latest/), halLiftover, hal2fasta, [Cross_Match](https://www.repeatmasker.org/RepeatMasker/)
+  * Required programs: [RepeatMasker](https://www.repeatmasker.org/RepeatMasker/), [BEDtools](https://bedtools.readthedocs.io/en/latest/), [halLiftover](https://github.com/ComparativeGenomicsToolkit/hal), [hal2fasta](https://github.com/ComparativeGenomicsToolkit/hal), [Cross_Match](https://www.repeatmasker.org/RepeatMasker/)
   * This requires a whole-genome HAL alignment of the taxa of interest
   * In this case, the [241-way mammalian alignment](https://cglgenomics.ucsc.edu/data/cactus/) (v2) from the Zoonomia project was used
 
