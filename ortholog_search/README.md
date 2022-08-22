@@ -52,6 +52,7 @@
   
 ### Run RepeatMasker on the lifted orthologous site FASTA sequences using custom TE library FASTA file (-lib)
   * See library prep steps further down if combining/creating a library from Dfam database RepeatMasker's famdb.py utility
+  * Steps to download Dfam's curated TE library are also [available](https://bedtools.readthedocs.io/en/latest/).
   * Generic example:
   ```
   RepeatMasker-4.1.2-p1/RepeatMasker -s -lib Dfam3.6_curated_wNames.fa TonSau_to_BosTau_unsure.fa -pa 14 –nolow
