@@ -4,7 +4,7 @@
  
 ### Extracting TE sequences from BLAST hits
   * Using the same directories we made during the original BLAST searches, make subdirectories for extracting TE insertion FASTAs
-  * This uses a wrapper script, **template_extend_align_mod.sh**, for various python scripts (as before), the new one being extract_all.py
+  * This uses a wrapper script, **template_extend_align_mod.sh**, for various python scripts (as before), the new one being **extract_all.py**
   * Example for job submission:
   ```
   sbatch </path/to/wrapper/script>/template_extend_align_mod5.sh </path/to/genomes>/assemblies/aJam.fa </path/to/BLAST/search/working/dir>/extend_align/mamm </path/to/TE/consensus/FASTA>/te_fastas/ArtJam-1.129.fa
@@ -54,6 +54,10 @@
   ```
   </path/to/EMBOSS/installation>/EMBOSS-6.6.0/emboss/getorf -sequence </path/to/consensus/sequence/files>/extend_align/nonmamm_cons_seqs/Mariner2_pKuh_ErpCal_rep.fa -outseq </path/to/output/dir>/extend_align/nonmamm/Mariner2_pKuh_ErpCal_orfs.fa -find 3
   ```
+  
+### Checking for sequence matches in full TE library (optional)
+  * If you wish to check that a non-mammal (or other) TE consensus sequence is either the same as the original element, or for related elements
+  * See **blast_nonmamm_cons_to_lib.sh**
   
   
   
