@@ -44,7 +44,7 @@
   
 ### Build sequence tree with RaxML (optional)
   * Generally only helpful for TEs present in 3+ species across multiple clades (i.e. bats, lemurs, and tenrecs)
-  * See raxml.sh
+  * See **raxml.sh**
 
 ### Checking for TE autonomy (optional)
   * If you wish to determine if a TE (either library consensus or species-specific consensus sequence) has open reading frames (ORFs), and do a protein BLAST search 
