@@ -1,0 +1,112 @@
+#!/usr/bin/perl -w
+
+# GrepCrossmatch (Arian Smit)
+# used in some form or another since 1995
+# rewritten April 8, 2021.
+
+use strict;
+
+my $USAGE = "usage: GrepCrossmatch <*.out file from cross_match> 
+  or GrepCrossmatch -fof <file of files>
+-q(uery) <string>  Show only those lines with /string/ in the query name.
+-t(arget) <string> Show only those lines with /string/ in the target name. 
+-e(xact)           Requires exact matches to either -q or -t. If classification is includd after \#, the exact match may be up to the pound sign
+-s(elf)            Show matches between entries identical in name and sequence (which are skipped by default)\n";
+
+unless ($#ARGV >= 0 ) {
+    die $USAGE;
+}
+
+# command options
+use Getopt::Long;
+my @opts = qw(exact fof=s query=s self target=s);
+our ($opt_exact, $opt_fof, $opt_query, $opt_self, $opt_target);
+die $USAGE unless (GetOptions(@opts));
+
+if ($opt_fof) {                     # was a file of files specified?
+  open (FOF, $opt_fof) || die "cannot open $opt_fof";
+  while (<FOF>) {
+    chop;
+    push (@ARGV, $_);
+  }
+  close FOF;
+}
+
+
+my ($relative,$perbasescore,$lastname) = ();
+my $warning = "Note that exact matches to sequences with identical names are not reported unless one uses the option -self\n\n";
+foreach my $file (@ARGV) {
+  my @lines = ();
+  my %max = ();
+  open (XMATCH, $file) || die "cannot open $ARGV[0]\n";
+  print "$file\n" if $ARGV[1];        # helps the output
+  while (<XMATCH>) {
+    next unless /^\s*\d+/;
+    if ( / \(\d+\) / ) {
+      my @bit = split;
+      if (!$relative && $bit[8] =~ /^\(\d+\)$/ && $bit[7] =~ /^\d+$/) {
+#	print STDERR "Treating input as derived from Xmatch.pl -perbasescore\n";
+	$relative = 1;
+      }
+      $perbasescore = shift @bit if $relative;
+      my $uptopound = $bit[4];
+      $uptopound =~ s/\#\S+//;
+      if ($opt_query && ($bit[4] !~ /$opt_query/ || 
+			 $opt_exact && $bit[4] ne $opt_query && $uptopound ne $opt_query) ) {
+	next;
+      }
+      if ( !$opt_self && $bit[4] eq $bit[8] && 
+	  ($bit[1]+$bit[2]+$bit[3]) == 0 ) {
+	if ($warning) {
+	  print STDERR "$warning";
+	  $warning = "";
+	}
+	next;
+      }
+      # it never could handle repeatmasker output, could it?
+#      unless ($bit[$#bit] eq "*") { # RepeatMasker output
+#	push (@bit, " "); 
+#      }
+      if (!$opt_query && $lastname && $bit[4] ne $lastname ) {
+	push @lines, "\n";
+      }
+      $lastname = $bit[4];
+      @bit = ( @bit[0 .. 7], "+", @bit[8 .. $#bit] ) unless $bit[8] eq "C" && $bit[10] =~ /\(\d+\)/;
+      $uptopound = $bit[9];
+      $uptopound =~ s/\#\S+//;
+      if ($opt_target && ($bit[9] !~ /$opt_target/ || 
+			  $opt_exact && $bit[9] ne $opt_target && $uptopound ne $opt_target) ) {
+        next;
+      } 
+      unshift @bit, $perbasescore if $relative;
+      for (my $i = 0; $i <= $#bit; ++ $i) {
+	my $len = length $bit[$i];
+	$max{$i} = $len if !$max{$i} || $len > $max{$i};
+      }
+      my $line = join ' ',@bit;
+      push @lines, $line;
+    }
+  }
+  close XMATCH;
+  my $lastlinehadsomething = 0;
+  foreach (@lines) {
+    if (/\S/) {
+      my @bit = split;
+      my @sp = ();
+      for (my $i=0; $i <= $#bit; ++ $i) {
+	my $len = length $bit[$i];
+	$sp[$i] = ' ' x ($max{$i} - $len);
+      }
+      if ($relative) {
+	my $pb = shift @bit;
+	my $sp = shift @sp;
+	print "$sp$pb ";
+      }	
+      print "$sp[0]$bit[0] $sp[1]$bit[1] $sp[2]$bit[2] $sp[3]$bit[3] $bit[4]$sp[4] $sp[5]$bit[5] $sp[6]$bit[6] $bit[7]$sp[7] $bit[8] $bit[9]$sp[9] $sp[10]$bit[10] $sp[11]$bit[11] $sp[12]$bit[12]\n";
+      $lastlinehadsomething = 1;
+    } elsif ($lastlinehadsomething) {
+      print "\n";
+      $lastlinehadsomething = 0;
+    }
+  }
+}
