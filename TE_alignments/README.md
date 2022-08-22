@@ -4,7 +4,7 @@
  
 ### Extracting TE sequences from BLAST hits
   * Using the same directories we made during the original BLAST searches, make subdirectories for extracting TE insertion FASTAs
-  * This uses a wrapper script, template_extend_align_mod.sh, for various python scripts (as before), the new one being extract_all.py
+  * This uses a wrapper script, **template_extend_align_mod.sh**, for various python scripts (as before), the new one being extract_all.py
   * Example for job submission:
   ```
   sbatch </path/to/wrapper/script>/template_extend_align_mod5.sh </path/to/genomes>/assemblies/aJam.fa </path/to/BLAST/search/working/dir>/extend_align/mamm </path/to/TE/consensus/FASTA>/te_fastas/ArtJam-1.129.fa
@@ -33,11 +33,11 @@
   ```
   
 ### Create multi-FASTA files for each element with all species-specific consensus sequences
-  * Run concatenate_te_sp_rep_seqs.py
+  * Run **concatenate_te_sp_rep_seqs.py**
   * This will also output lists of elements that are a) present in only 1 species, b) present in 2+ species, which can be used for batch submissions for alignments
   
 ### Align consensus sequences for TEs present in 2+ species
-  * This example uses MUSCLE, but CLUSTAL works just as well
+  * This example with **te_reps_muscle_aln.sh** uses MUSCLE, but CLUSTAL works just as well
   ```
   sbatch te_reps_muscl_aln.sh
   ```
@@ -49,7 +49,7 @@
 ### Checking for TE autonomy (optional)
   * If you wish to determine if a TE (either library consensus or species-specific consensus sequence) has open reading frames (ORFs), and do a protein BLAST search 
   * Make a list of TE_GenSpe_rep.fa files (TE by species consensus sequence file names)
-  * Run EMBOSS getorf; see nonmamm_getorfs_array.sh for example of batch job submission
+  * Run EMBOSS getorf; see **nonmamm_getorfs_array.sh** for example of batch job submission
   * Example:
   ```
   </path/to/EMBOSS/installation>/EMBOSS-6.6.0/emboss/getorf -sequence </path/to/consensus/sequence/files>/extend_align/nonmamm_cons_seqs/Mariner2_pKuh_ErpCal_rep.fa -outseq </path/to/output/dir>/extend_align/nonmamm/Mariner2_pKuh_ErpCal_orfs.fa -find 3
