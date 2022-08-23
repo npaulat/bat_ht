@@ -16,6 +16,15 @@
   for SUBDIR in */; do cp ${SUBDIR::-1}/extracts_redo/extracts/*.fa /lustre/scratch/npaulat/RayLib-Masking/extend_align/sp_blast_reps/${SUBDIR::-1}_blast_reps_only.fa; done
   ```
   
+### Calculating average TE age in a taxon (also generates species-specific consensus sequence)
+  * This requires the RepeatModeler utility scripts alignAndCallConsensus.pl and Linup (gives you the statistics of each sequence aligned to the consensus)
+  * If for some reason these scripts are not in your RepeatModeler distribution, email Robert Hubley (though they are included here, they likely need configuration to local RepeatModeler installation)
+  * Example array job script; see **calc_div_array.sh**
+  * Example as interactive bash command:
+  ```
+  while read line; do CHRANGE2=$(echo $line | awk '{ print $1 }'); CHRANGE=$(echo $line | awk '{ print $2 }'); sp_reps=$(basename ${CHRANGE2} _blast_reps_only.fa); mkdir ${sp_reps}; cd ${sp_reps}; cp $CHRANGE ./$(basename ${CHRANGE} .fa)-cons.fa; cp ${CHRANGE2} .; /home/rhubley/forNikki/RepeatModeler/util/alignAndCallConsensus.pl -c ./$(basename ${CHRANGE} .fa)-cons.fa -e ./$(basename ${CHRANGE2}) -fi; sleep 60; /home/rhubley/forNikki/RepeatModeler/util/Linup -stats ./$(basename ${CHRANGE} .fa).out > ${sp_reps}_stats.tsv; cd ..; done < $NAMESFILE > log.txt
+  ```
+  
 ### Copy all species-specific consensus sequences to a new directory
   * Example for mammals:
   ```
