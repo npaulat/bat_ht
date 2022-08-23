@@ -9,6 +9,12 @@
   ```
   sbatch </path/to/wrapper/script>/template_extend_align_mod5.sh </path/to/genomes>/assemblies/aJam.fa </path/to/BLAST/search/working/dir>/extend_align/mamm </path/to/TE/consensus/FASTA>/te_fastas/ArtJam-1.129.fa
   ```
+  * The sequence extracts of all TE BLAST hits will be in the extracts_redo/extracts/ folder
+  * Copy all of those to to a BLAST reps folder
+  ```
+  cd extend_align
+  for SUBDIR in */; do cp ${SUBDIR::-1}/extracts_redo/extracts/*.fa /lustre/scratch/npaulat/RayLib-Masking/extend_align/sp_blast_reps/${SUBDIR::-1}_blast_reps_only.fa; done
+  ```
   
 ### Copy all species-specific consensus sequences to a new directory
   * Example for mammals:
