@@ -3,6 +3,7 @@
 # Oct 11, 2019
 # Modified by Jenny Korstian 4/3/2020
 # Modified by David Ray 5/21/2021
+# Modified by Nicole Paulat 8/26/2021
 
 import pandas as pd
 import os
@@ -121,7 +122,9 @@ for CLADE in CLADES:
 			TITLE = TETYPE.strip().replace('_', ' ')
 			TITLE = re.sub("(^|\s)(\S)", convert_to_uppercase, TITLE)
 		elif TETYPE == 'PiggyBac':
-			TITLE = 'Piggybac'
+			TITLE = 'piggyBac'
+		elif TETYPE == 'TcMariner':
+			TITLE = 'Tc-Mariner'
 		else:
 			TITLE = TETYPE
 		##Make horizontal violin plot
