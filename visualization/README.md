@@ -1,6 +1,6 @@
 ## Visualizing TE content
   * This requires the reformatted RepeatMasker output from RM2Bed.py from the TE annotation workflow as the initial input
-  * The TE_rm.bed files are then processed using the (filter_beds.py)[https://github.com/davidaray/bioinfo_tools/blob/master/filter_beds.py] script, once with the age filter of 50my and once without
+  * The TE_rm.bed files are then processed using the [filter_beds.py](https://github.com/davidaray/bioinfo_tools/blob/master/filter_beds.py) script, once with the age filter of 50my and once without
     * This requires an additional input, genome_sizes_mrates.txt, which is a list file with 1) taxon abbreviations, 2) size of the genome in bp, and 3) the species-specific neutral mutation rate
     * See bat_genome_sizes_mrates.txt
   ```
@@ -8,7 +8,7 @@
   python filter_beds.py -g genome_sizes_mrates.txt
   ```
     * This assumes the *_rm.bed files are in the current directory, see catdata.sh for convenient setup
-  * The original TE_rm.bed files must also be processed using the (catdata_props_age.py)(https://github.com/davidaray/bioinfo_tools/blob/master/catdata_props_age.py) script, for creating processed files split by TE class, TE family, and TE subfamily, as well as merged files with summaries of TE proportions
+  * The original TE_rm.bed files must also be processed using the [catdata_props_age.py](https://github.com/davidaray/bioinfo_tools/blob/master/catdata_props_age.py) script, for creating processed files split by TE class, TE family, and TE subfamily, as well as merged files with summaries of TE proportions
   ```
   python catdata_props_age.py -g genome_sizes_mrates.txt -p all
   ```
