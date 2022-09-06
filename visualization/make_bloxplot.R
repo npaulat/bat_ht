@@ -1,4 +1,4 @@
-setwd("C:/Users/Nikki/OneDrive - Texas Tech University")
+#setwd("C:/Users/Nikki/OneDrive - Texas Tech University")
 library(readxl)
 library(ggplot2)
 library(ggthemes)
