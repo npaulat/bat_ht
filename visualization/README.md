@@ -3,7 +3,7 @@
   * The TE_rm.bed files are then processed using the [filter_beds.py](https://github.com/davidaray/bioinfo_tools/blob/master/filter_beds.py) script, once with the age filter of 50my and once without
     * This requires an additional input, genome_sizes_mrates.txt, which is a list file with 1) taxon abbreviations, 2) size of the genome in bp, and 3) the species-specific neutral mutation rate
     * See bat_genome_sizes_mrates.txt
-    * * This assumes the *_rm.bed files are in the current directory, see catdata.sh for convenient setup
+    * This assumes the *_rm.bed files are in the current directory, see catdata.sh for convenient setup
   ```
   python filter_beds.py -g genome_sizes_mrates.txt -p 50my -a 50000000
   python filter_beds.py -g genome_sizes_mrates.txt
