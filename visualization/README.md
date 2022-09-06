@@ -28,4 +28,14 @@ for TAXON in $(cat list.txt); do for TE in hAT Helitron piggyBac TcMariner other
   * Again, create a trimmed file with the total proportions for each category (can either sum in Excel, or in python)
   * Finally, use these two trimmed TE proportion summary files as input for **barplot_panel.py**
   * Example:
-     ``` python barplot_panel.py -i1 plots/all_all_taxa_classes_trimmed_species_updated4.txt -i2 plots/50my_all_taxa_DNA_families_trimmed_species_updated4.txt -l y -o h ```
+  ``` 
+  python barplot_panel.py -i1 plots/all_all_taxa_classes_trimmed_species_updated4.txt -i2 plots/50my_all_taxa_DNA_families_trimmed_species_updated4.txt -l y -o h
+  ```
+ 
+ ### Violin plots for temporal TE accumulation patterns
+  * This requires the <TAXON>_<TECLASS>_50my_family_processed_beds.txt files made in the previous steps, which should all be in a single directory
+  * Also requires a <CLADE>_sizefile.txt, which lists 1) Genus_species, 2) genome size in bp, 3) species-specific neutral mutation rate, and 4) taxon abbreviation (GenSpe)
+    * See **scaledviolinplot_div_hpcc_family_h.py** annotations for details on paths and figure options
+  ```
+  python scaledviolinplot_div_hpcc_family_h.py
+  ```
