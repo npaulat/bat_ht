@@ -51,7 +51,7 @@ for TAXON in $(cat list.txt); do for TE in hAT Helitron piggyBac TcMariner other
   * Can make a basic phylogeny in Mesquite and export as a .nex file
   * FAD_LAD file contains the genus, FAD (estimated time of divergence in My), and LAD (in this case, 0.000000001 since the R package will not accept 0)
  * Run **bat_geoscale.R**, which adds the geologic timescale to your phylogeny
-  * The main issue with this package is that the current version overwrites the base option to change the figure size, so it produces a very small figure with weird proportions; can fix by 1) making the plot viewer as large as possible, 2) save figure, 3) import into Inkscape and convert to an svg, and 4) manually change the lines and labels to an appropriate width/length and font size for readability
+   * The main issue with this package is that the current version overwrites the base option to change the figure size, so it produces a very small figure with weird proportions; can fix by 1) making the plot viewer as large as possible, 2) save figure, 3) import into Inkscape and convert to an svg, and 4) manually change the lines and labels to an appropriate width/length and font size for readability
  * Also in Inkscape, choose a series of shapes and color shading to represent your TE types and heatmapping of HT events, and add them to the appropriate branches
  * Create a figure legend
  * Export as as appropriate file format (.svg, .png) with desired dpi (300, 600)
