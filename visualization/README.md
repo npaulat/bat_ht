@@ -25,4 +25,7 @@
 
 for TAXON in $(cat list.txt); do for TE in hAT Helitron piggyBac TcMariner other_DNA; do header=${TAXON}_TE; sed -i "/^${header}/d" ${TAXON}_${TE}_all_family_processed_beds.txt; done < ${TE}_family_list; done
   ```
-
+  * Again, create a trimmed file with the total proportions for each category (can either sum in Excel, or in python)
+  * Finally, use these two trimmed TE proportion summary files as input for **barplot_panel.py**
+  * Example:
+     ``` python barplot_panel.py -i1 plots/all_all_taxa_classes_trimmed_species_updated4.txt -i2 plots/50my_all_taxa_DNA_families_trimmed_species_updated4.txt -l y -o h ```
