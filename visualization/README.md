@@ -7,6 +7,7 @@
   python filter_beds.py -g genome_sizes_mrates.txt -p 50my -a 50000000
   python filter_beds.py -g genome_sizes_mrates.txt
   ```
+  
     * This assumes the *_rm.bed files are in the current directory, see catdata.sh for convenient setup
   * The original TE_rm.bed files must also be processed using the [catdata_props_age.py](https://github.com/davidaray/bioinfo_tools/blob/master/catdata_props_age.py) script, for creating processed files split by TE class, TE family, and TE subfamily, as well as merged files with summaries of TE proportions
   ```
