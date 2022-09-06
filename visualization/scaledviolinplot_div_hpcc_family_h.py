@@ -63,7 +63,7 @@ def convert_to_uppercase(x):
 ## Check file names. As written this limits to only DNAs and 50my files
 for CLADE in CLADES:
 	## Provide a file that has a list of the names of each species, one per line. This should be available as the size file provided to 'filter_beds.py'.
-	SIZEFILE = WORKPATH + '/' + CLADE + '_sizefile3.txt'
+	SIZEFILE = WORKPATH + '/' + CLADE + '_sizefile.txt'
 	#SIZEFILE = WORKPATH + '/' + 'genome_sizes_mrates.txt'
 	# Read in the genomesizes to get a taxon list.
 	print('Reading in genome sizes file, ' + SIZEFILE + '.')
