@@ -17,7 +17,7 @@
 ### Stacked barplots of TE content
   * This requires you to take the output file all_all_taxa_classes_merged_cats.txt from catdata_props_age.py and trim it down to the desired TE classes (can use Excel)
     * In this case, LINE, SINE, RC, DNA, and Unknown >> all_all_taxa_classes_trimmed.txt
-  * For the barplot of DNA/RC TEs 50My or younger, will need to concatenate the desired families files (\<\TAXON>_<TE_Family>_all_processed_beds.txt) for each TE superfamily
+  * For the barplot of DNA/RC TEs 50My or younger, will need to concatenate the desired families files (\<TAXON>_<TE_Family>_all_processed_beds.txt) for each TE superfamily
     * In this case, Helitron, hAT, piggyBac, TcMariner, and other DNA are the superfamilies
   * Can do this by creating list files with the TE families for each superfamily, and using the taxon list file in some bash loops
   ```
