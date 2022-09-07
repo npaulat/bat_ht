@@ -36,8 +36,8 @@ for TAXON in $(cat list.txt); do for TE in hAT Helitron piggyBac TcMariner other
   ```
   python calc_te_proportions.py
   ```
-  * Open the resulting bat_te_proportions_summary file, and create a sheet named "Total DNA_RC" with the summed total DNA + RC TE proportions for each taxon
-  * This sheet should have three columns: 1) Genus_species, 2) Group (Chiroptera or Others), and 3) Total_Proportion
+  * Open the resulting bat_te_proportions_summary file, and create a sheet named "Total DNA_RC" with the Total_DNA_RC_proportion column for each taxon
+  * This sheet should have three columns: 1) Genus_species, 2) Group (Chiroptera or Others), and 3) Total_Proportion (the renamed Total_DNA_RC_proportion column)
   * Run **make_boxplot.R** in RStudio, tweak figure as desired
  
  
