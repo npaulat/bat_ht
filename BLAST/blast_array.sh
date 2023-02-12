@@ -34,3 +34,8 @@ echo "${CHRANGE} taxa file created"
 grep -v "Mammalia" /lustre/scratch/npaulat/RayLib-Masking/external_ht/taxa_files/${CHRANGE}_90.taxa > /lustre/scratch/npaulat/RayLib-Masking/external_ht/non_mammal/${CHRANGE}_90.nonMammal
 
 echo "${CHRANGE} nonMammal taxa list created"
+
+#Search for Prototheria/Metatheria hits (have to do this at the Order level, as they are nested under the "Mammalia" clade
+grep -e "Monotremata" -e "Dasyuromorphia" -e "Didelphimorphia" -e "Diprotodontia" -e "Microbiotheria" -e "Notoryctemorphia" -e "Paucituberculata" -e "Peramelemorphia" /lustre/scratch/npaulat/RayLib-Masking/external_ht/taxa_files/${CHRANGE}_90.taxa > /lustre/scratch/npaulat/RayLib-Masking/external_ht/metatheria/${CHRANGE}_90_nonEutherian.out
+
+echo "${CHRANGE} nonEutherian taxa list created"
