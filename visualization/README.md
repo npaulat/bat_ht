@@ -24,6 +24,23 @@
   for TAXON in $(cat list.txt); do for TE in hAT Helitron piggyBac TcMariner other_DNA; do while read line; cat ${TAXON}_${line}_all_family_processed_beds.txt >> ${TAXON}_${TE}_all_family_processed_beds.txt; done < ${TE}_family_list; done
 
 for TAXON in $(cat list.txt); do for TE in hAT Helitron piggyBac TcMariner other_DNA; do header=${TAXON}_TE; sed -i "/^${header}/d" ${TAXON}_${TE}_all_family_processed_beds.txt; done < ${TE}_family_list; done
+  
+  cd rm_beds_mammals
+  TAXA_FILE=/lustre/scratch/npaulat/bat_beds_plots/list2.txt
+  LIST_DIR=/lustre/scratch/npaulat/bat_beds_plots
+  
+  for TAXON in $(cat ${TAXA_FILE}); do for TE in hAT PiggyBac TcMariner other_DNA; do while read line; do awk -v x=$line ' { if ($5 == x) { print } }' class_files/${TAXON}_DNA_50my_class_processed_beds.txt >> DNA_family_files/${TAXON}_${TE}_50my_families_processed_beds.txt; done < ../${TE}_family_list; done; done
+
+  for TAXON in $(cat ${TAXA_FILE}); do for TE in hAT PiggyBac TcMariner other_DNA; do awk '{sum+=$3;} END{print sum;}' DNA_family_files/${TAXON}_${TE}_50my_families_processed_beds.txt >> DNA_family_sums/${TAXON}_DNA_50my_families_processed_beds.txt; done; done
+
+  paste_with_header() (
+    IFS=$'\t'
+    printf '%s\n' "${@%%_*}"
+    paste -- "$@"
+  )
+  
+  cd DNA_family_sums
+  paste_with_header *_DNA_50my_families_processed_beds.txt > ../all_taxa_DNA_50my_family_proportions.txt
   ```
   * Again, create a trimmed file with the total proportions for each category (can either sum in Excel, or in python)
   * Finally, use these two trimmed TE proportion summary files as input for **barplot_panel.py**
